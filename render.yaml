@@ -1,0 +1,22 @@
+databases:
+  - name: Est_DB
+    databaseName: Est_db
+    user: Est
+    region: singapore
+
+services:
+  - type: web
+    name: Est
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Est_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+

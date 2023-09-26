@@ -1,0 +1,9 @@
+<h1>メイン</h1>
+<% @menus.each do |t| %>
+  　　<%= image_tag t.image_url, size: "250x200" if t.image? %>
+    
+      <%= t.name %>
+      <%= t.about %>
+      <%= t.price %>
+
+<% end %>

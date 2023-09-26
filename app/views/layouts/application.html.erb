@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Est</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+    
+    </head>
+
+<body>
+ <header>
+  <h1>エスト</h1>
+  <ul>
+   <li><%= link_to "top", root_path %></li>
+   <li><%= link_to "新規投稿",new_menu_path %></li>
+  </ul>
+ </header>
+ 
+ <main>
+   <%= yield %>
+ </main>
+
+ <footer>
+ <p>Copyright © エスト All Rights Reserved.</p>
+</footer>
+
+</body>
+
+</html>

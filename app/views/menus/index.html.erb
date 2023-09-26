@@ -1,0 +1,62 @@
+<h1>イタリアンレストラン　エスト</h1>
+<h3> ランチメニュー</h3>
+
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"menus",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+   <a href="#" class="btn-square-shadow">BUTTON</a>
+<% end %>
+
+<%= link_to "main","/menus/main" %>
+<%= link_to "zensai","/menus/zensai" %>
+<%= link_to "drink","/menus/drink" %>
+<%= link_to "cake","/menus/cake"%>
+
+<%= link_to "新規投稿へ", new_menu_path %>
+<div class="menus-container">
+  
+  </div>
+
+  <%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="menus-container">
+<h3>Menu一覧</h3>
+  <% @menus.each do |t| %>
+    <div class="menu">
+      <div class="main-box">
+      
+          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          
+            <%= t.name %>
+            <%= t.about %>
+            <%= t.price %>
+            <%= t.category %>
+          
+      
+      
+          <%= button_to 'いいね', menu_likes_path(id: t.id, menu_id: t.id) %>
+          <%= t.likes.count %>
+          <%= flash[:notice] %>
+
+          <%= link_to "詳細へ", menu_path(t.id) %><br>
+          <%= link_to "編集する", edit_menu_path(t.id) %><br>
+          <%= link_to "削除する", menu_path(t.id), method: :delete %><br>
+      </div>
+    </div>
+      
+      <div class="right-container">
+          
+      </div>
+
+  <% end %>
+</div>
+
+<h2>エスト</h2>
+<p>ご予約・お問い合わせはこちら</p>
+<p>TEL:027-363-0295</p>
+
+<p>ADDRESS:〒370-0801 群馬県高崎市上並榎町４７９−３</p>
+<p>OPEN:11:00~15:30(L.O.14:30)17:30~22:00(L.O.21:00)</p>
+<p>CLOSED:火曜日</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2280.94929591595!2d138.98740027709053!3d36.342481049015696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e8dbae8add089%3A0xc310dd241f9c80e6!2z44Ko44K544OI!5e0!3m2!1sja!2sjp!4v1694490387037!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

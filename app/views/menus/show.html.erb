@@ -1,0 +1,18 @@
+<h2>メニュー詳細</h2>
+
+<div class="menu">
+   <div class="main-box">
+    <%= image_tag @menu.image_url, size: "250x200" if @menu.image? %>
+    <%= @menu.name %>
+    <%= @menu.about %>
+    <%= @menu.price %>
+    <%= @menu.category %>
+
+    <%= button_to 'いいね', menu_likes_path(id: @menu.id, menu_id: @menu.id) %>
+    <%= @menu.likes.count %>
+    <%= flash[:notice] %>
+
+    <%= link_to "編集する", edit_menu_path(@menu.id) %><br>
+    <%= link_to "削除する", menu_path(@menu.id), method: :delete %><br>
+   </div>
+</div>

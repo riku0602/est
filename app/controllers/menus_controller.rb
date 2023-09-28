@@ -15,6 +15,9 @@ class MenusController < ApplicationController
     @menus = Menu.where(category:"cake")
   end
 
+  def top
+  end
+    
   def index
         
         if params[:search] == nil

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get 'menus/:menu_id/likes/:id' => 'likes#destroy'
   end
 
-  root 'menus#index'
+  root 'menus#top'
 
 end
